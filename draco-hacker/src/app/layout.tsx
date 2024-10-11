@@ -1,6 +1,8 @@
 import "@mantine/core/styles.css";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { MyAppShell } from "@/features/site/site-components";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
   title: "Draco Hackers",
@@ -18,6 +20,7 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
+        <ToastContainer />
         <MantineProvider>
           <MyAppShell>{children}</MyAppShell>
         </MantineProvider>

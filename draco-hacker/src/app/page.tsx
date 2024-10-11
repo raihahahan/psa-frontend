@@ -1,3 +1,9 @@
+import { AlertButton } from "@/features/dashboard/dashboard-components";
+
 export default function Page() {
-  return <div>hello</div>;
+  return (
+    <div>
+      <AlertButton />
+    </div>
+  );
 }
