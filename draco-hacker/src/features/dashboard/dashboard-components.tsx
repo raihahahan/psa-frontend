@@ -9,10 +9,12 @@ import {
   DonutChartCell,
 } from "@mantine/charts";
 import { Group, Text } from "@mantine/core";
+import { useRouter } from "next/navigation";
 
 export function AlertButton() {
+  const router = useRouter();
   useEffect(() => {
-    AlertListener();
+    AlertListener(router);
   }, []);
 
   return <></>;

@@ -5,13 +5,50 @@ import { DataTable } from "mantine-datatable";
 import { NotificationRow } from "./notifications-type";
 import { useEffect, useState } from "react";
 import supabase from "../database/supabase";
+import { usePathname, useRouter } from "next/navigation";
 
-export function NotificationsTable() {
-  const [data, setData] = useState<NotificationRow[]>([]);
+interface INotificationData {
+  data: string;
+  insights: string;
+}
+
+export function NotificationsData() {
+  const pathname = usePathname();
+  const parts = pathname.split("/");
+  const id = parts[parts.length - 1];
+  const [notifData, setNotifData] = useState<INotificationData | null>(null);
 
   useEffect(() => {
     async function f() {
-      const { data, error } = await supabase.from("notifications").select();
+      const { data, error }: { data: any; error: any } = await supabase
+        .from("notifications")
+        .select()
+        .eq("id", id);
+
+      setNotifData(data[0]);
+    }
+    f();
+  }, []);
+
+  return (
+    <div>
+      <h1>Title: {notifData?.data}</h1>
+      <h3>
+        {notifData?.insights ? notifData?.insights : "No insights available"}
+      </h3>
+    </div>
+  );
+}
+
+export function NotificationsTable() {
+  const [data, setData] = useState<NotificationRow[]>([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    async function f() {
+      const { data, error } = await supabase
+        .from("notifications")
+        .select("id,created_at,data");
       setData(data as any);
     }
     f();
@@ -24,6 +61,9 @@ export function NotificationsTable() {
       striped
       highlightOnHover
       records={data}
+      onRowClick={({ record, index, event }) => {
+        router.push(`notifications/${record.id}`);
+      }}
       // define columns
       columns={[
         {

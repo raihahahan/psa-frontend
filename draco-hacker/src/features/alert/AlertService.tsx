@@ -2,15 +2,21 @@
 import { toast } from "react-toastify";
 import { SquareCardAlert } from "./alert-components";
 import supabase from "../database/supabase";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+
+interface AlertMessage {
+  data: string;
+  id: string;
+}
 
 class AlertService {
-  public static psaAlert(message: string, onClick?: () => void) {
+  public static psaAlert(message: AlertMessage, router: AppRouterInstance) {
     const alertMessage = message;
-    toast(<SquareCardAlert message={alertMessage} title="Warning" />, {
+    toast(<SquareCardAlert message={alertMessage.data} title="Warning" />, {
       position: "top-right",
       autoClose: false,
       hideProgressBar: true,
-      onClick,
+      onClick: () => router.push(`/notifications/${alertMessage.id}`),
     });
   }
   public static alert(
@@ -32,10 +38,10 @@ class AlertService {
   }
 }
 
-export function AlertListener() {
+export function AlertListener(router: AppRouterInstance) {
   const handleInserts = (payload: any) => {
     console.log("Change received!", payload);
-    AlertService.psaAlert(payload.new.data);
+    AlertService.psaAlert(payload.new, router);
   };
 
   // Listen to inserts
