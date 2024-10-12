@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from "@mantine/core";
+import { Box, Button } from "@mantine/core";
 import { DataTable } from "mantine-datatable";
 import { NotificationRow } from "./notifications-type";
 import { useEffect, useState } from "react";
@@ -17,7 +17,7 @@ export function NotificationsData() {
   const parts = pathname.split("/");
   const id = parts[parts.length - 1];
   const [notifData, setNotifData] = useState<INotificationData | null>(null);
-
+  const router = useRouter();
   useEffect(() => {
     async function f() {
       const { data, error }: { data: any; error: any } = await supabase
@@ -31,11 +31,23 @@ export function NotificationsData() {
   }, []);
 
   return (
-    <div>
-      <h1>Title: {notifData?.data}</h1>
-      <h3>
-        {notifData?.insights ? notifData?.insights : "No insights available"}
-      </h3>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "88vh",
+        justifyContent: "space-between",
+      }}
+    >
+      <div>
+        <h1>Title: {notifData?.data}</h1>
+        <h3>
+          {notifData?.insights ? notifData?.insights : "No insights available"}
+        </h3>
+      </div>
+      <Button onClick={() => router.back()} style={{ width: 120 }} color="red">
+        Back
+      </Button>
     </div>
   );
 }
