@@ -6,6 +6,7 @@ import { NotificationRow } from "./notifications-type";
 import { useEffect, useState } from "react";
 import supabase from "../database/supabase";
 import { usePathname, useRouter } from "next/navigation";
+import Markdown from "react-markdown";
 
 interface INotificationData {
   data: string;
@@ -35,15 +36,15 @@ export function NotificationsData() {
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "88vh",
+        height: "100%",
         justifyContent: "space-between",
       }}
     >
       <div>
         <h1>Title: {notifData?.data}</h1>
-        <h3>
+        <Markdown>
           {notifData?.insights ? notifData?.insights : "No insights available"}
-        </h3>
+        </Markdown>
       </div>
       <Button onClick={() => router.back()} style={{ width: 120 }} color="red">
         Back
