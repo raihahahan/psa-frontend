@@ -21,7 +21,7 @@ export function NavbarSimple() {
   const pathname = usePathname();
   const [active, setActive] = useState(pathname.toLowerCase().replace("/", ""));
   const router = useRouter();
-  const { user, error, isLoading } = useUser();
+  //   const { user, error, isLoading } = useUser();
 
   const links = data.map((item) => (
     <a
@@ -46,7 +46,7 @@ export function NavbarSimple() {
 
   return (
     <nav className={classes.navbar}>
-      <code style={{ fontWeight: "bold" }}>{user?.email}</code>
+      {/* <code style={{ fontWeight: "bold" }}>{user?.email}</code> */}
       <br />
       <div className={classes.navbarMain}>
         <Group className={classes.header} justify="space-between">
@@ -55,7 +55,7 @@ export function NavbarSimple() {
         {links}
       </div>
 
-      <div className={classes.footer}>
+      {/* <div className={classes.footer}>
         <a
           href="/logout"
           className={classes.link}
@@ -64,7 +64,7 @@ export function NavbarSimple() {
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Logout</span>
         </a>
-      </div>
+      </div> */}
     </nav>
   );
 }
