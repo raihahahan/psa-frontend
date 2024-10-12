@@ -128,3 +128,96 @@ export const crisisStackedData = [
     "Operational Disruption": 8,
   },
 ];
+
+export const operationalMatricsData = [
+  {
+    date: "Mar 22",
+    ShippingDelays: 5, // in hours
+    PortCongestion: 75, // percentage
+    CostImpact: 1000, // in thousands of dollars
+  },
+  {
+    date: "Mar 23",
+    ShippingDelays: 6,
+    PortCongestion: 82,
+    CostImpact: 1200,
+  },
+  {
+    date: "Mar 24",
+    ShippingDelays: 7,
+    PortCongestion: 85,
+    CostImpact: 1500,
+  },
+  {
+    date: "Mar 25",
+    ShippingDelays: 9,
+    PortCongestion: 90,
+    CostImpact: 2000,
+  },
+  {
+    date: "Mar 26",
+    ShippingDelays: 4,
+    PortCongestion: 70,
+    CostImpact: 900,
+  },
+];
+
+export const resourceUtilData = [
+  {
+    date: "Mar 22",
+    ContainerSlots: 150,
+    Workforce: 120,
+    FuelUsage: 300,
+  },
+  {
+    date: "Mar 23",
+    ContainerSlots: 170,
+    Workforce: 110,
+    FuelUsage: 280,
+  },
+  {
+    date: "Mar 24",
+    ContainerSlots: 180,
+    Workforce: 130,
+    FuelUsage: 320,
+  },
+  {
+    date: "Mar 25",
+    ContainerSlots: 190,
+    Workforce: 140,
+    FuelUsage: 350,
+  },
+  {
+    date: "Mar 26",
+    ContainerSlots: 160,
+    Workforce: 125,
+    FuelUsage: 310,
+  },
+];
+
+export const radarData = [
+  {
+    product: "Apples",
+    sales: 120,
+  },
+  {
+    product: "Oranges",
+    sales: 98,
+  },
+  {
+    product: "Tomatoes",
+    sales: 86,
+  },
+  {
+    product: "Grapes",
+    sales: 99,
+  },
+  {
+    product: "Bananas",
+    sales: 85,
+  },
+  {
+    product: "Lemons",
+    sales: 65,
+  },
+];
