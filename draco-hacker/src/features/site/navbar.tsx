@@ -14,7 +14,6 @@ import { usePathname } from "next/navigation";
 const data = [
   { link: "/", label: "Dashboard", icon: IconWorld },
   { link: "/notifications", label: "Notifications", icon: IconBellRinging },
-  { link: "/settings", label: "Settings", icon: IconSettings },
 ];
 
 export function NavbarSimple() {

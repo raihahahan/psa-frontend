@@ -4,6 +4,7 @@ import { MyAppShell } from "@/features/site/site-components";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@mantine/charts/styles.css";
+import "mantine-datatable/styles.layer.css";
 
 export const metadata = {
   title: "Draco Hackers",

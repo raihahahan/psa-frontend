@@ -1,3 +1,9 @@
+import { NotificationsTable } from "@/features/notifications/notifications-components";
+
 export default function Page() {
-  return <div>Notifications</div>;
+  return (
+    <div>
+      <NotificationsTable />
+    </div>
+  );
 }
