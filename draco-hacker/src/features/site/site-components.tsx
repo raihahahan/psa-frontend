@@ -33,7 +33,7 @@ export function MyAppShell({ children }: { children: React.ReactNode }) {
             visibleFrom="sm"
             size="sm"
           />
-          <code>{PRODUCT_NAME}</code>
+          <code style={{ fontWeight: "bolder" }}>{PRODUCT_NAME}</code>
         </Group>
       </AppShell.Header>
       <AppShell.Navbar p="md">

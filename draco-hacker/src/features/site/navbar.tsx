@@ -10,6 +10,7 @@ import classes from "./navbar.module.css";
 import { VERSION } from "@/config";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 const data = [
   { link: "/", label: "Dashboard", icon: IconWorld },
@@ -20,6 +21,7 @@ export function NavbarSimple() {
   const pathname = usePathname();
   const [active, setActive] = useState(pathname.toLowerCase().replace("/", ""));
   const router = useRouter();
+  const { user, error, isLoading } = useUser();
 
   const links = data.map((item) => (
     <a
@@ -44,6 +46,8 @@ export function NavbarSimple() {
 
   return (
     <nav className={classes.navbar}>
+      <code style={{ fontWeight: "bold" }}>{user?.email}</code>
+      <br />
       <div className={classes.navbarMain}>
         <Group className={classes.header} justify="space-between">
           <Code fw={700}>{VERSION}</Code>

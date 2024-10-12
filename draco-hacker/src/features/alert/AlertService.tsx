@@ -1,10 +1,11 @@
 "use client";
 import { toast } from "react-toastify";
 import { SquareCardAlert } from "./alert-components";
+import supabase from "../database/supabase";
 
 class AlertService {
   public static psaAlert(message: string, onClick?: () => void) {
-    const alertMessage = JSON.parse(message.replaceAll("'", '"')).data;
+    const alertMessage = message;
     toast(<SquareCardAlert message={alertMessage} title="Warning" />, {
       position: "top-right",
       autoClose: false,
@@ -32,11 +33,20 @@ class AlertService {
 }
 
 export function AlertListener() {
-  const ws = new WebSocket("ws://127.0.0.1:8000/alerts");
-  ws.addEventListener("message", (event) => {
-    console.log("message");
-    AlertService.psaAlert(event.data);
-  });
+  const handleInserts = (payload: any) => {
+    console.log("Change received!", payload);
+    AlertService.psaAlert(payload.new.data);
+  };
+
+  // Listen to inserts
+  supabase
+    .channel("notifications")
+    .on(
+      "postgres_changes",
+      { event: "INSERT", schema: "public", table: "notifications" },
+      handleInserts
+    )
+    .subscribe();
 }
 
 export default AlertService;
