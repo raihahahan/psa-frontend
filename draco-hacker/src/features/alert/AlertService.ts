@@ -1,3 +1,4 @@
+"use client";
 import { toast } from "react-toastify";
 
 class AlertService {
@@ -18,6 +19,14 @@ class AlertService {
       onClick,
     });
   }
+}
+
+export function AlertListener() {
+  const ws = new WebSocket("ws://127.0.0.1:8000/alerts");
+  ws.addEventListener("message", (event) => {
+    console.log("message");
+    AlertService.alert(event.data, "info");
+  });
 }
 
 export default AlertService;
