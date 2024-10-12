@@ -20,10 +20,15 @@ export function NavbarSimple() {
   const pathname = usePathname();
   const [active, setActive] = useState(pathname.toLowerCase().replace("/", ""));
   const router = useRouter();
+
   const links = data.map((item) => (
     <a
       className={classes.link}
-      data-active={item.label.toLowerCase() === active || undefined}
+      data-active={
+        (item.label == "Dashboard" && pathname == "/") ||
+        item.label.toLowerCase() === active ||
+        undefined
+      }
       href={item.link}
       key={item.label}
       onClick={(event) => {
@@ -48,9 +53,9 @@ export function NavbarSimple() {
 
       <div className={classes.footer}>
         <a
-          href="#"
+          href="/logout"
           className={classes.link}
-          onClick={(event) => event.preventDefault()}
+          onClick={(event) => router.push("/logout")}
         >
           <IconLogout className={classes.linkIcon} stroke={1.5} />
           <span>Logout</span>

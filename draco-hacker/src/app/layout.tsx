@@ -5,6 +5,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@mantine/charts/styles.css";
 import "mantine-datatable/styles.layer.css";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
+import AuthGuard from "@/features/auth/AuthGuard";
 
 export const metadata = {
   title: "Draco Hackers",
@@ -24,7 +26,9 @@ export default function RootLayout({
       <body>
         <MantineProvider>
           <ToastContainer />
-          <MyAppShell>{children}</MyAppShell>
+          <UserProvider>
+            <AuthGuard>{children}</AuthGuard>
+          </UserProvider>
         </MantineProvider>
       </body>
     </html>
