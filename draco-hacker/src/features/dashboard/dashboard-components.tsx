@@ -1,6 +1,6 @@
 "use client";
-import { Button } from "@mantine/core";
-import AlertService, { AlertListener } from "../alert/AlertService";
+
+import { AlertListener } from "../alert/AlertService";
 import { useEffect } from "react";
 
 export function AlertButton() {
@@ -8,13 +8,5 @@ export function AlertButton() {
     AlertListener();
   }, []);
 
-  return (
-    <Button
-      onClick={() => {
-        AlertService.alert("Alert", "error");
-      }}
-    >
-      Click to test alert
-    </Button>
-  );
+  return <></>;
 }

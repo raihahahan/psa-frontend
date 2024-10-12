@@ -20,8 +20,8 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <ToastContainer />
         <MantineProvider>
+          <ToastContainer />
           <MyAppShell>{children}</MyAppShell>
         </MantineProvider>
       </body>
