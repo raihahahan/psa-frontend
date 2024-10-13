@@ -164,6 +164,39 @@ export const operationalMatricsData = [
 
 export const resourceUtilData = [
   {
+    date: "Mar 22",
+    ContainerSlots: 150,
+    Workforce: 120,
+    FuelUsage: 300,
+  },
+  {
+    date: "Mar 23",
+    ContainerSlots: 170,
+    Workforce: 110,
+    FuelUsage: 280,
+  },
+  {
+    date: "Mar 24",
+    ContainerSlots: 180,
+    Workforce: 130,
+    FuelUsage: 320,
+  },
+  {
+    date: "Mar 25",
+    ContainerSlots: 190,
+    Workforce: 140,
+    FuelUsage: 350,
+  },
+  {
+    date: "Mar 26",
+    ContainerSlots: 160,
+    Workforce: 125,
+    FuelUsage: 310,
+  },
+];
+
+export const radarData = [
+  {
     crisisType: "Natural Disasters",
     occurrences: 120,
   },
