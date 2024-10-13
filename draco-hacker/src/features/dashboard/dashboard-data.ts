@@ -164,60 +164,27 @@ export const operationalMatricsData = [
 
 export const resourceUtilData = [
   {
-    date: "Mar 22",
-    ContainerSlots: 150,
-    Workforce: 120,
-    FuelUsage: 300,
+    crisisType: "Natural Disasters",
+    occurrences: 120,
   },
   {
-    date: "Mar 23",
-    ContainerSlots: 170,
-    Workforce: 110,
-    FuelUsage: 280,
+    crisisType: "Political Instability",
+    occurrences: 98,
   },
   {
-    date: "Mar 24",
-    ContainerSlots: 180,
-    Workforce: 130,
-    FuelUsage: 320,
+    crisisType: "Supply Chain Disruptions",
+    occurrences: 86,
   },
   {
-    date: "Mar 25",
-    ContainerSlots: 190,
-    Workforce: 140,
-    FuelUsage: 350,
+    crisisType: "Cybersecurity Threats",
+    occurrences: 99,
   },
   {
-    date: "Mar 26",
-    ContainerSlots: 160,
-    Workforce: 125,
-    FuelUsage: 310,
-  },
-];
-
-export const radarData = [
-  {
-    product: "Apples",
-    sales: 120,
+    crisisType: "Pandemics",
+    occurrences: 85,
   },
   {
-    product: "Oranges",
-    sales: 98,
-  },
-  {
-    product: "Tomatoes",
-    sales: 86,
-  },
-  {
-    product: "Grapes",
-    sales: 99,
-  },
-  {
-    product: "Bananas",
-    sales: 85,
-  },
-  {
-    product: "Lemons",
-    sales: 65,
+    crisisType: "Energy Shortages",
+    occurrences: 65,
   },
 ];
