@@ -68,7 +68,7 @@ export default function Page() {
             <RadarChart
               h={300}
               data={radarData}
-              dataKey="product"
+              dataKey="crisisType"
               withPolarRadiusAxis
               series={[{ name: "sales", color: "blue.4", opacity: 0.2 }]}
             />
