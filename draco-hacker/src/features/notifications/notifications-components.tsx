@@ -73,7 +73,10 @@ export function NotificationsTable() {
       withColumnBorders
       striped
       highlightOnHover
-      records={data}
+      records={data.sort(
+        (a, b) =>
+          new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      )}
       onRowClick={({ record, index, event }) => {
         router.push(`notifications/${record.id}`);
       }}
