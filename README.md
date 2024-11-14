@@ -1,3 +1,5 @@
+This is our submission for PSA Code Sprint Hackathon 2024
+
 # PSA Crisis Management Dashboard
 
 This project is an AI-powered predictive analytics platform designed to help PSA (Port of Singapore Authority) forecast potential disruptions in port operations. By gathering real-time data from various sources like weather forecasts, historical weather events, and news APIs, the backend processes this data using an LLM (Large Language Model) to generate insights. These insights are presented in the frontend through a dashboard, which displays alerts and operational statistics.
